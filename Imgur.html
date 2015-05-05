@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ImgurApp">
+<head>
+  <meta charset="utf-8">
+  <title>ImgurApp</title>
+  <script src="node_modules/angular/angular.js"></script>
+  <script src="Imgur-controller.js"></script>
+  <script src="filters.js"></script>
+</head>
+<body ng-controller="ImgurController">
+<div>
+<li ng-repeat = "pic in response">
+	<video loop = "true" autoplay = "true">
+	<source ng-src = "{{pic.mp4 | trusted}}" type = "video/mp4"/>
+	</video>
+	</li>
+
+
+</div>
+
+</body>
+</html>
