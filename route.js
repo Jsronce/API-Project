@@ -20,7 +20,8 @@ ImgurApp.config(['$routeProvider',
 }]);
 
 
-	ImgurApp.filter('pathSplit', [$location, function($location) {
+	ImgurApp.filter('pathSplit', [ function() {
         return function(path) {
-			return [$location.path().split('&')[0], $location.path().split('&')[0]];
+			return [path.split('&')[0], path.split('&')[1]];
+		}
 }]);
