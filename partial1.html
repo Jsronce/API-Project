@@ -2,7 +2,9 @@
 <p>Enter a tag here and see related gifs.</p>
 <input type = "text" ng-model = "tag">
 
-<input type = "button" value = "Submit" ng-click = "search(tag)">
+<input type = "button" value = "Submit" ng-click = "search([tag, 0])">
+<input type = "button" value = "Prev" ng-click = "search({{path | pathSplit}})">
+<input type = "button" value = "Next" ng-click = "search(tag, 0)">
 <div>
 <li ng-repeat = "pic in response">
 	<video loop = "true" autoplay = "true">

@@ -5,11 +5,11 @@ ImgurApp.config(['$routeProvider',
 		$routeProvider.
 			when('/:desktop?', {
 				templateUrl: 'partial1.html',
-				controller: 'ImgurController'
+				controller: 'DefaultController'
 			}).
 			otherwise({
 				templateUrl: 'partial1.html',
-				controller: 'ImgurController'
+				controller: 'DefaultController'
 			});
 	}]);
 	
@@ -17,4 +17,10 @@ ImgurApp.config(['$routeProvider',
     return function(url) {
         return $sce.trustAsResourceUrl(url);
     };
+}]);
+
+
+	ImgurApp.filter('pathSplit', [$location, function($location) {
+        return function(path) {
+			return [$location.path().split('&')[0], $location.path().split('&')[0]];
 }]);
