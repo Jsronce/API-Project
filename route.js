@@ -7,6 +7,10 @@ ImgurApp.config(['$routeProvider',
 				templateUrl: 'partial1.html',
 				controller: 'DefaultController'
 			}).
+			when('/:mobile?', {
+				templateUrl: 'partial2.html',
+				controller: 'MobileController'
+			}).
 			otherwise({
 				templateUrl: 'partial1.html',
 				controller: 'DefaultController'

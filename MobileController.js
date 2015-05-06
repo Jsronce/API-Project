@@ -1,8 +1,7 @@
 
 
-var AppControllers = angular.module('AppControllers', [])
 
-AppControllers.controller('DefaultController', ['$scope', '$http', "$location", '$routeParams', function ($scope, $http, $location, $routeParams){ 
+AppControllers.controller('MobileController', ['$scope', '$http', "$location", '$routeParams', function ($scope, $http, $location, $routeParams){ 
 	
 	
 	$scope.search = function(tag){
@@ -20,16 +19,6 @@ AppControllers.controller('DefaultController', ['$scope', '$http', "$location", 
 		var path = $location.path().split('&')
 		$location.path(path[0] + '&' +(parseInt(path[1],10) +1))
 	}
-	$scope.prev = function(){
-		var path = $location.path().split('&')
-		var current = parseInt(path[1],10);
-		var prev = 0;
-		if(current > 0){
-			prev = current -1;
-		}
-		$location.path(path[0] + '&' +(prev))
-		}
-	
 	$http(request).success(function(data) {
 	$scope.data = data
 
@@ -41,7 +30,7 @@ AppControllers.controller('DefaultController', ['$scope', '$http', "$location", 
 		if(!(temp.mp4 === undefined)){
 			videos.push(temp)
 		}
-		if (videos.length > 4){
+		if (videos.length > 1){
 			break}
 		}
 	console.log(videos)
