@@ -27,7 +27,7 @@ AppControllers.controller('MobileController', ['$scope', '$http', "$location", '
 	var temp;
 	for(var i = 0;i<data.data.items.length; i++){
 		temp = data.data.items[i]
-		if(!(temp.mp4 === undefined)){
+		if(!(temp.mp4 === undefined && !temp.nsfw)){
 			videos.push(temp)
 		}
 		if (videos.length > 1){
