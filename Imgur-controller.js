@@ -7,39 +7,44 @@ AppControllers.controller('DefaultController', ['$scope', '$http', "$location", 
 	
 	$scope.search = function(tag){
 		if(tag != ''){
-			$location.path(tag+'&'+0)
+			if(window.outerHeight< 700 || window.outerWidth < 700){
+				$location.path('mobile/' + tag+'&'+0);
+			}
+			else{
+				$location.path('desktop/' + tag+'&'+0);
+			}
 	}}
-	var pathStuff = $location.path().split('&')
+	var pathStuff = $location.path().split('&');
 	var request = {
 		method: 'GET',
-		url: 'https://api.imgur.com/3/gallery/t'+pathStuff[0] + '/' + pathStuff[1],
+		url: 'https://api.imgur.com/3/gallery/t/'+pathStuff[0].split('/')[2] + '/' + pathStuff[1],
 		headers: {
 			Authorization: 'Client-ID c2d46d060a1041c'
 			}}
 	$scope.next = function(){
-		var path = $location.path().split('&')
-		$location.path(path[0] + '&' +(parseInt(path[1],10) +1))
+		var path = $location.path().split('&');
+		$location.path(path[0] + '&' +(parseInt(path[1],10) +1));
 	}
 	$scope.prev = function(){
-		var path = $location.path().split('&')
+		var path = $location.path().split('&');
 		var current = parseInt(path[1],10);
 		var prev = 0;
 		if(current > 0){
 			prev = current -1;
 		}
-		$location.path(path[0] + '&' +(prev))
+		$location.path(path[0] + '&' +(prev));
 		}
 	
 	$http(request).success(function(data) {
-	$scope.data = data
+	$scope.data = data;
 
 	var videos = []
 	var data = $scope.data;
 	var temp;
 	for(var i = 0;i<data.data.items.length; i++){
-		temp = data.data.items[i]
+		temp = data.data.items[i];
 		if(!(temp.mp4 === undefined && !temp.nsfw)){
-			videos.push(temp)
+			videos.push(temp);
 		}
 		if (videos.length > 4){
 			break}

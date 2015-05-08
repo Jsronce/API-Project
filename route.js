@@ -3,12 +3,8 @@ var ImgurApp = angular.module('ImgurApp', ['ngRoute', 'AppControllers']);
 ImgurApp.config(['$routeProvider',
 	function($routeProvider){
 		$routeProvider.
-			when('/:desktop?', {
-				templateUrl: 'partial1.html',
-				controller: 'DefaultController'
-			}).
-			when('/:mobile?', {
-				templateUrl: 'partial2.html',
+			when('/!upload', {
+				templateUrl: 'partial3.html',
 				controller: 'MobileController'
 			}).
 			otherwise({
