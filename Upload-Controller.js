@@ -3,7 +3,7 @@
 
 AppControllers.controller('UploadController', ['$scope', '$http', "$location", '$routeParams', function ($scope, $http, $location, $routeParams){ 
 	var pastLinks = [];
-	if(!(localStorage.getItem("links") === undefined)){
+	if(!(localStorage.getItem("links") === null)){
 		pastLinks = ((JSON.parse(localStorage.getItem("links"))));
 	
 		if(pastLinks[0].length == 1){
