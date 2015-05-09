@@ -18,9 +18,9 @@ module.exports = function(grunt) {
 		dist: {
 			files: {
 				'build/590APP.js': [
-				'Imgur-controller.js',
-				'route.js',
-				'upload-controller.js',
+				'js/Imgur-controller.js',
+				'js/route.js',
+				'js/upload-controller.js',
 				]
 			}
 		}
@@ -28,7 +28,7 @@ module.exports = function(grunt) {
 	concat: {
 		dist: {
 			files: {
-				'590APP.js': [
+				'js/590APP.js': [
 				'node_modules/angular/angular.js',
 				'node_modules/angular-route/angular-route.js',
 				'build/590APP.js'

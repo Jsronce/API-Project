@@ -4,15 +4,15 @@ ImgurApp.config(['$routeProvider',
 	function($routeProvider){
 		$routeProvider.
 			when('/!upload', {
-				templateUrl: 'partial3.html',
+				templateUrl: 'partials/partial3.html',
 				controller: 'UploadController'
 			}).
 			when('/!StoredLinks', {
-				templateUrl: 'partial2.html',
+				templateUrl: 'partials/partial2.html',
 				controller: 'UploadController'
 			}).
 			otherwise({
-				templateUrl: 'partial1.html',
+				templateUrl: 'partials/partial1.html',
 				controller: 'DefaultController'
 			});
 	}]);
