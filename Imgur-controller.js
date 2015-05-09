@@ -7,17 +7,13 @@ AppControllers.controller('DefaultController', ['$scope', '$http', "$location", 
 	
 	$scope.search = function(tag){
 		if(tag != ''){
-			if(window.outerHeight< 700 || window.outerWidth < 700){
-				$location.path('mobile/' + tag+'&'+0);
+			$location.path(tag+'&'+0);
 			}
-			else{
-				$location.path('desktop/' + tag+'&'+0);
-			}
-	}}
+	}
 	var pathStuff = $location.path().split('&');
 	var request = {
 		method: 'GET',
-		url: 'https://api.imgur.com/3/gallery/t/'+pathStuff[0].split('/')[2] + '/' + pathStuff[1],
+		url: 'https://api.imgur.com/3/gallery/t/'+pathStuff[0] + '/' + pathStuff[1],
 		headers: {
 			Authorization: 'Client-ID c2d46d060a1041c'
 			}}
