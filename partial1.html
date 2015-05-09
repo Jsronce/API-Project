@@ -7,10 +7,11 @@
 <input type = "button" value = "Submit" ng-click = "search(tag)">
 <input type = "button" value = "Prev" ng-click = "prev()">
 <input type = "button" value = "Next" ng-click = "next()">
-<div>
+</div>
+
 <div ng-repeat = "pic in response">
 	<video loop = "true" autoplay = "true">
 	<source ng-src = "{{pic.mp4 | trusted}}" type = "video/mp4"/>
 	</video>
 </div>
-</div>
+

@@ -29,8 +29,8 @@ module.exports = function(grunt) {
 		dist: {
 			files: {
 				'590APP.js': [
-				'node_modules/angular/angular.min.js',
-				'node_modules/angular-route/angular-route.min.js',
+				'node_modules/angular/angular.js',
+				'node_modules/angular-route/angular-route.js',
 				'build/590APP.js'
 				]
 			}

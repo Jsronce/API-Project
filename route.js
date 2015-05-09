@@ -7,7 +7,7 @@ ImgurApp.config(['$routeProvider',
 				templateUrl: 'partial3.html',
 				controller: 'UploadController'
 			}).
-			when('/!Stored Links', {
+			when('/!StoredLinks', {
 				templateUrl: 'partial2.html',
 				controller: 'UploadController'
 			}).

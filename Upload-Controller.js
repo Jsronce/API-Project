@@ -2,11 +2,14 @@
 
 
 AppControllers.controller('UploadController', ['$scope', '$http', "$location", '$routeParams', function ($scope, $http, $location, $routeParams){ 
-	var currentLinks = [];
-	if(!(localStorage.getItem("links") === null)){
-		currentLinks.push(localStorage.getItem("links"))
-	}
-	$scope.currentLinks = currentLinks;
+	var pastLinks = [];
+	if(!(localStorage.getItem("links") === undefined)){
+		pastLinks = ((JSON.parse(localStorage.getItem("links"))));
+	
+		if(pastLinks[0].length == 1){
+			pastLinks = [pastLinks]
+	}}
+	$scope.currentLinks = pastLinks;
 	$scope.upload = function(){
 	var picture = document.getElementById("file").files[0];
 	var fileReader = new FileReader();
@@ -40,13 +43,17 @@ AppControllers.controller('UploadController', ['$scope', '$http', "$location", '
 			div = document.getElementById("dummy");
 			document.getElementById("dummy").appendChild(responseText);
 			div.appendChild(nimg);
-			currentLinks = localStorage.getItem("links")
-			if(currentLinks === null){
-				localStorage.setItem("links",data.data.link);
+			var currentLinks = JSON.parse(localStorage.getItem("links"));
+			
+			if(currentLinks === null || currentLinks == [] || currentLinks == ""){
+				localStorage.setItem("links",JSON.stringify(data.data.link));
 			}
 			else{
-				currentLinks = currentLinks.push(data.data.link)
-				localStorage.setItem("links", currentLinks);
+				if(currentLinks[0].length == 1){
+				currentLinks = [currentLinks];
+				}
+				currentLinks.push(data.data.link)
+				localStorage.setItem("links", JSON.stringify(currentLinks));
 			$scope.currentLinks = currentLinks;
 			}
 	//console.log(videos)
